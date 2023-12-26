@@ -24,7 +24,7 @@ public:
             }
             else return false;
         }
-        if(p.size()==0)
+        if(p.empty())
             return true;
         else return false;
     }
