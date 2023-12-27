@@ -1,7 +1,6 @@
 class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
-        int result = 0;
         int num1, num2;
         stack<int> nums;
         if(tokens.size()==1)
@@ -13,18 +12,18 @@ public:
                 num2 = nums.top();
                 nums.pop();
                 if(tokens[i] == "+")
-                    result = num1 + num2;
+                    num1 = num1 + num2;
                 if(tokens[i] == "-")
-                    result = num2 - num1;
+                    num1 = num2 - num1;
                 if(tokens[i] == "*")
-                    result = num1 * num2;
+                    num1 = num1 * num2;
                 if(tokens[i] == "/")
-                    result = num2 / num1;
-                nums.push(result);
+                    num1 = num2 / num1;
+                nums.push(num1);
             }
             else
                 nums.push(stoi(tokens[i]));
         }
-        return result;
+        return num1;
     }
 };
