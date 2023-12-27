@@ -12,18 +12,18 @@ public:
                 num2 = nums.top();
                 nums.pop();
                 if(tokens[i] == "+")
-                    num1 = num1 + num2;
+                    num2 += num1;
                 if(tokens[i] == "-")
-                    num1 = num2 - num1;
+                    num2 -= num1;
                 if(tokens[i] == "*")
-                    num1 = num1 * num2;
+                    num2 *= num1;
                 if(tokens[i] == "/")
-                    num1 = num2 / num1;
-                nums.push(num1);
+                    num2 /= num1;
+                nums.push(num2);
             }
             else
                 nums.push(stoi(tokens[i]));
         }
-        return num1;
+        return num2;
     }
 };
