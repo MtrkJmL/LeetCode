@@ -4,15 +4,15 @@ public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         int size = temperatures.size();
         vector<int> answer(size, 0);
-        stack<int> s;
+        stack<int> st;
 
         for (int i = 0; i < size; i++) {
-            while (!s.empty() && temperatures[i] > temperatures[s.top()]) {
-                int prevIndex = s.top();
-                s.pop();
+            while (!st.empty() && temperatures[i] > temperatures[st.top()]) {
+                int prevIndex = st.top();
+                st.pop();
                 answer[prevIndex] = i - prevIndex;
             }
-            s.push(i);
+            st.push(i);
         }
 
         return answer;
